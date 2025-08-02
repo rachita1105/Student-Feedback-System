@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<a href="{{ url_for('feedback_form') }}" class="btn">+ Submit New Feedback</a>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Course</th>
+        <th>Rating</th>
+        <th>Comments</th>
+    </tr>
+    {% for fb in feedback_list %}
+    <tr>
+        <td>{{ fb[0] }}</td>
+        <td>{{ fb[1] }}</td>
+        <td>{{ fb[2] }}</td>
+        <td>{{ fb[3] }}</td>
+        <td>{{ fb[4] }}</td>
+    </tr>
+    {% else %}
+    <tr><td colspan="5">No feedback submitted yet.</td></tr>
+    {% endfor %}
+</table>
+{% endblock %}
